@@ -7,21 +7,42 @@
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous"> 
 
 	<script type="text/javascript">
-	var imgcount =1;
+	/*var imgcount =1;
     var total = 7; 
     function slide(x){
 	var image = document.getElementById('imge');
 	imgcount = imgcount +x;
 	image.src = "img"+ imgcount + ".JPG"; 
  
-}
+} */ 
+      
+	 var images = ["img1.JPG","img2.JPG","img3.JPG","img4.JPG","img5.JPG","img6.JPG","img7.JPG"];
+      var num=0;
+     function next(){
+	 
+	  var slider = document.getElementById("imge");
+	  num++;
+	  if(num>=images.length){
+	   num=0;
+	  }
+	  slider.src = images[num];
+	 }
+	  function prev(){
+	 
+	  var slider = document.getElementById("imge");
+	  num--;
+	  if(num<0){
+	   num= images.length-1;
+	  }
+	  slider.src = images[num];
+	 }
 	</script>
 </head>
 <body>
 	<div id="Container"> 
 		<img src="img1.JPG" id="imge"> 
-		<div id="leftHolder"><i class="fas fa-arrow-circle-left" id="left" onclick="slide(-1)"></i></div>
-		<div id="rightHolder"> <i class="fas fa-arrow-circle-right" id="right" onclick="slide(1)"></i></div>
+		<div id="leftHolder"><i class="fas fa-arrow-circle-left" id="left" onclick="prev()"></i></div>
+		<div id="rightHolder"> <i class="fas fa-arrow-circle-right" id="right" onclick="next()"></i></div>
 		
 	</div>
 
